@@ -10,7 +10,7 @@ from mi_family import treshold
 f=re.compile('\([A-Z\|\s]+\)')
 g=re.compile('[A-Z]+')
 last=re.compile('[а-я][а-яё\|\s]+')
-file = open('connectors.csv','r')
+file = open('connectives.csv','r')
 source=file.readlines()
 connectors_dic={}
 merged=[]
