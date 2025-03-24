@@ -10,7 +10,7 @@ from mi_family import treshold
 f=re.compile('\([A-Z\|\s]+\)')
 g=re.compile('[A-Z]+')
 last=re.compile('[а-я][а-яё\|\s]+')
-file = open('/Users/lana/Documents/connectors/connectors.csv','r')
+file = open('connectors.csv','r')
 source=file.readlines()
 connectors_dic={}
 merged=[]
@@ -46,7 +46,7 @@ for abc in final_cnt_words:
         if t[0] == abc:
            abc_patterns.append(str(t[1]))
     abcp=list(set(abc_patterns))
-file2 = open('/Users/lana/Documents/connectors/embeddings.txt','r',encoding='UTF-8')
+file2 = open('embeddings.txt','r',encoding='UTF-8')
 content = file2.readlines()
 embeddings_dictionary={}
 for line in content:
@@ -146,6 +146,6 @@ treshold_dic['pmi_4']=treshold(pmi_4)
 treshold_dic['pmi_5']=treshold(pmi_5)
 for i in treshold_dic.items():
     print (i)
-pd.DataFrame(result).to_csv('result.csv',index=False)
-pd.DataFrame(question).to_csv('connectives_in_question.csv',index=False)
+#pd.DataFrame(result).to_csv('result.csv',index=False)
+#pd.DataFrame(question).to_csv('connectives_in_question.csv',index=False)
 sys.exit()    
