@@ -25,7 +25,7 @@ def mmi(embeddings_dictionary,connectors_dic,a): # embeddings_dictionary - Сл�
         mmi=math.log(f_obs / ((int(r[4]) * int(r[5]) * int(r[6]) * int(r[7]) * int(r[8]))/int(r[9])**5))
     return round(mmi,5)
 
-#def mi3(embeddings_dictionary,connectors_dic,a,N):# ОШИБКА!!! НЕ БРАТЬ ЭТУ ФУНКЦИЮ ВООБЩЕ!!! формула "MI в кубе", используемая в НКРЯ для ранжирования
+#def mi3(embeddings_dictionary,connectors_dic,a,N):# ОШИБКА!!! НЕ БРАТЬ ЭТУ ФУНКЦИЮ ВООБЩЕ!!! Размер корпуса ДОЛЖЕН возводиться в степень! формула "MI в кубе", используемая в НКРЯ для ранжирования
 #    # результатов при поиске двухсловных коллокаций. Отличается от формулы, предложенной в диссертации
 #    # Daille, Béatrice (1994). Approche mixte pour l’extraction automatique de terminologie : statistiques lexicales et filtres linguistiques. Ph.D. thesis, Université Paris 7.
 #    # тем, что используется натуральный логарифм, а не логарифм по основанию 2. 
@@ -57,19 +57,19 @@ def mi3_exp(embeddings_dictionary,connectors_dic,a,N): #Вариант форм�
         mi3=math.log(f / ((int(r[4]) * int(r[5]) * int(r[6]) * int(r[7]) * int(r[8]))/N**4))
     return round(mi3,5)
 
-def mi3_with_pattern(embeddings_dictionary,connectors_dic,a):
-    r=connectors_dic[a]
-    f_obs=nesting_function(embeddings_dictionary,connectors_dic,a)
-    f=f_obs**3
-    if r[0]=='2':
-        mi3=math.log(f / ((int(r[4]) * int(r[5]))/int(r[6])))
-    if r[0]=='3':
-        mi3=math.log(f / ((int(r[4]) * int(r[5]) * int(r[6]))/int(r[7])))
-    if r[0]=='4':
-        mi3=math.log(f / ((int(r[4]) * int(r[5]) * int(r[6]) * int(r[7]))/int(r[8])))
-    if r[0]=='5':
-        mi3=math.log(f / ((int(r[4]) * int(r[5]) * int(r[6]) * int(r[7]) * int(r[8]))/int(r[9])))
-    return round(mi3,5)
+#def mi3_with_pattern(embeddings_dictionary,connectors_dic,a): #ТА ЖЕ ОШИБКА, ЧТО И В mi3 - ЧАСТОТНОСТЬ ПАТТЕРНА ТОЖЕ ДОЛЖНА ВОЗВОДИТЬСЯ В СТЕПЕНЬ!
+#    r=connectors_dic[a]
+#    f_obs=nesting_function(embeddings_dictionary,connectors_dic,a)
+#    f=f_obs**3
+#    if r[0]=='2':
+#        mi3=math.log(f / ((int(r[4]) * int(r[5]))/int(r[6])))
+#    if r[0]=='3':
+#        mi3=math.log(f / ((int(r[4]) * int(r[5]) * int(r[6]))/int(r[7])))
+#    if r[0]=='4':
+#        mi3=math.log(f / ((int(r[4]) * int(r[5]) * int(r[6]) * int(r[7]))/int(r[8])))
+#    if r[0]=='5':
+#        mi3=math.log(f / ((int(r[4]) * int(r[5]) * int(r[6]) * int(r[7]) * int(r[8]))/int(r[9])))
+#    return round(mi3,5)
 
 def pmi(embeddings_dictionary,connectors_dic,a,N): # формула для двухсловных выражений изначально предложена в работе
     # Church K, Hanks P. Word association norms, mutual information, and lexicography. Computational linguistics. 1990;16(1):22-9.
